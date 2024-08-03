@@ -1,0 +1,11 @@
+# Info
+
+This repo will be used to implement my own game engine using c/cpp.
+
+To handle windows and inputs I will use SDL:
+
+https://libsdl.org/
+
+The main objetive of the project is to get more advanced knowledge of the c/cpp programing languages.
+
+Secondary goals are getting better at managing different git utilities and makefiles
