@@ -9,3 +9,11 @@ https://libsdl.org/
 The main objetive of the project is to get more advanced knowledge of the c/cpp programing languages.
 
 Secondary goals are getting better at managing different git utilities and makefiles
+
+# TODO's
+
+- Create tags and branches and try to pull different version of the repository using this
+tag's and branches.
+
+- Create github Actions to automatically test that everything works before being able to push
+to the master branch.
