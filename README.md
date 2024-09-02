@@ -1,3 +1,15 @@
+# How to clone
+
+- Clone with submodules:
+
+git clone --recurse-submodules git@github.com:MaximIJ/cppGameEngine.git
+
+- Clone without submodules:
+
+git clone git@github.com:MaximIJ/cppGameEngine.git \
+git submodule init \
+git submnodule update
+
 # Info
 
 This repo will be used to implement my own game engine using c/cpp.
