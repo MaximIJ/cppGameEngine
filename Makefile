@@ -3,6 +3,8 @@ OBJS_EXAMPLE = examples/01_hello_SDL/01_hello_SDL.cpp
 
 OBJS = src/main.cpp
 
+OBJS_CODE = src/codeGraph/main.cpp
+
 #CC specifies which compiler we're using
 CC = clang
 
@@ -22,6 +24,8 @@ OBJS_NAME_EXAMPLE = examples/01_hello_SDL/01_hello_SDL
 
 OBJS_NAME = src/main
 
+OBJS_NAME_CODE = src/codeGraph/main
+
 OBJS_NAME_LLVM_IR = src/main.ll
 
 #This is the target that compiles our examples
@@ -29,6 +33,10 @@ OBJS_NAME_LLVM_IR = src/main.ll
 binary : $(OBJS)
 	$(info Compiling...)
 	@$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJS_NAME)
+
+code : $(OBJS)
+	$(info Compiling...)
+	@$(CC) $(OBJS_CODE) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJS_NAME_CODE)
 
 llvm-ir : $(OBJS)
 	$(info Generating LLVM_IR...)
@@ -40,7 +48,7 @@ debug : $(OBJS)
 
 clean :
 	$(info Cleaning up ( $(OBJS_NAME) $(OBJS_NAME_LLVM_IR) ))
-	@rm -f $(OBJS_NAME)
+	@rm -f $(OBJS_NAME) $(OBJS_NAME_CODE)
 
 clear :
 	clear
@@ -52,3 +60,6 @@ test : $(OBJS_EXAMPLE)
 
 all : clean binary llvm-ir
 
+run : $(OBJS_CODE)
+	$(info Running codeGraph...)
+	@./src/codeGraph/main

@@ -1,0 +1,2 @@
+ERROR, could attach window surface: 
+make: *** [Makefile:65: run] Error 1
