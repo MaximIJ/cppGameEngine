@@ -47,7 +47,7 @@ debug : $(OBJS)
 	@$(CC) $(OBJS) $(COMPILER_FLAGS_DEBUG) $(LINKER_FLAGS) -o $(OBJS_NAME)
 
 clean :
-	$(info Cleaning up ( $(OBJS_NAME) $(OBJS_NAME_LLVM_IR) ))
+	$(info Cleaning up ( $(OBJS_NAME) $(OBJS_NAME_LLVM_IR) $(OBJS_NAME_CODE)))
 	@rm -f $(OBJS_NAME) $(OBJS_NAME_CODE)
 
 clear :

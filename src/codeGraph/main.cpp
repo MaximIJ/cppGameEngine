@@ -67,7 +67,7 @@ int main( int argc, char* args[] ){
     //ASSERT(!(screenSurface == nullptr), "ERROR, could attach window surface: %s\n", SDL_GetError());
 
     //SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 200, 200, 200));
-    SDL_UpdateWindowSurface(window);
+    //SDL_UpdateWindowSurface(window);
 
     windowRenderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     ASSERT(!(windowRenderer == nullptr), "ERROR, Renderer could not be created!: %s\n", SDL_GetError());
@@ -79,6 +79,11 @@ int main( int argc, char* args[] ){
     SDL_Rect rectangle = { (int)rect.getX(), (int)rect.getY(), (int)rect.getWidth(), (int)rect.getHeight() };
     Color *color = rect.getColor();
 
+    SDL_SetRenderDrawColor( windowRenderer,0xFF, 0xFF, 0xFF, 0xFF);
+    SDL_RenderClear(windowRenderer);
+    SDL_SetRenderDrawColor( windowRenderer, color->red, color->green, color->blue, color->alpha);
+    SDL_RenderFillRect(windowRenderer, &rectangle);
+
     SDL_Event e;
     bool quit = false;
 
@@ -87,12 +92,6 @@ int main( int argc, char* args[] ){
             if( e.type == SDL_QUIT )
                 quit = true;
         }
-
-        SDL_SetRenderDrawColor( windowRenderer,0xFF, 0xFF, 0xFF, 0xFF);
-        SDL_RenderClear(windowRenderer);
-        SDL_SetRenderDrawColor( windowRenderer, color->red, color->green, color->blue, color->alpha);
-        SDL_RenderFillRect(windowRenderer, &rectangle);
-
     }
 
     SDL_DestroyWindow(window);
