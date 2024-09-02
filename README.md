@@ -8,7 +8,7 @@ git clone --recurse-submodules git@github.com:MaximIJ/cppGameEngine.git
 
 git clone git@github.com:MaximIJ/cppGameEngine.git \
 git submodule init \
-git submnodule update
+git submodule update
 
 # Info
 
